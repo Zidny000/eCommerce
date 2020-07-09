@@ -1,0 +1,1 @@
+<p>To reset password use</p><br><p> token: {{$token}}  </p>
