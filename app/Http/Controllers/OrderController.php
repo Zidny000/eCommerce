@@ -67,8 +67,11 @@ class OrderController extends Controller
             ]);
         }
 
+        \Cart::session(Auth::user()->id)->clear();
 
         return redirect()->back();
+
+
 
 
 

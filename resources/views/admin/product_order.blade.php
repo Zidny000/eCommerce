@@ -54,6 +54,7 @@
                                 @foreach($order_products as $order_product)
                                     @if($order->id == $order_product->order_id)
                                         <li>
+
                                             {{\App\Product::find($order_product->product_id)->title}}
                                         </li>
                                     @endif

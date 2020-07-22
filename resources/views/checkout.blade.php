@@ -7,12 +7,28 @@
     @if(\Illuminate\Support\Facades\Auth::check())
     <hr class="offset-top">
 
+    @if(Cart::session(\Illuminate\Support\Facades\Auth::user()->id)->isEmpty())
+
+        <div class="white">
+            <div class="container checkout">
+                <h1>No Item is Added to Cart</h1>
+                <hr class="offset-sm">
+            </div>
+        </div>
+
+    @else
+
+
+
+
+
     <div class="white">
         <div class="container checkout">
             <h1>Checkout order</h1>
             <hr class="offset-sm">
         </div>
     </div>
+
     <hr class="offset-md">
 
     <div class="container checkout">
@@ -24,17 +40,17 @@
 
                     <div class="row group">
                         <div class="col-sm-4"><h2 class="h4">Receiver</h2></div>
-                        <div class="col-sm-8"> <input type="text" class="form-control" name="name" value="John Doe" required="" placeholder="" /></div>
+                        <div class="col-sm-8"> <input type="text" class="form-control" name="name" value="" required="" placeholder="" /></div>
                     </div>
 
                     <div class="row group">
                         <div class="col-sm-4"><h2 class="h4">Phone</h2></div>
-                        <div class="col-sm-8"> <input type="text" class="form-control" name="phone" value="+45 (555) 8546-25-77" required="" placeholder="" /></div>
+                        <div class="col-sm-8"> <input type="text" class="form-control" name="phone" value="" required="" placeholder="" /></div>
                     </div>
 
                     <div class="row group">
                         <div class="col-sm-4"><h2 class="h4">E-mail</h2></div>
-                        <div class="col-sm-8"> <input type="email" class="form-control" name="email" value="john@yahoo.com" required="" placeholder="" /></div>
+                        <div class="col-sm-8"> <input type="email" class="form-control" name="email" value="" required="" placeholder="" /></div>
                     </div>
 
                     <div class="row group">
@@ -43,7 +59,7 @@
                             <!-- <input type="text" class="form-control" name="country" value="" required="" placeholder="" /> -->
 
                             <div class="group-select justify" tabindex='1'>
-                                <input class="form-control select" id="country" name="country" value="United Kingdom" placeholder="" required="" />
+                                <input class="form-control select" id="country" name="country" value="" placeholder="" required="" />
 
                                 <ul class="dropdown">
                                     <li data-value="Aaland Islands">Aaland Islands</li>
@@ -338,18 +354,21 @@
                         <div class="col-sm-4"><h2 class="h4">Payment</h2></div>
                         <div class="col-sm-8">
                             <div class="group-select justify" tabindex='1'>
-                                <input class="form-control select" id="payment" name="payment" value="Cash on Delivery" placeholder="" required="" />
+                                <input class="form-control select" id="payment" name="payment" value="" placeholder="" required="" />
 
                                 <ul class="dropdown">
-                                    <li data-value="Cash on Delivery">Cash on Delivery</li>
-                                    <li data-value="Credit Card">Credit Card</li>
-                                    <li data-value="Paypall">Paypall</li>
+
+                                    <li data-value="Credit Card" id="credit">Credit Card</li>
+                                    <li data-value="Cash on Delivery" id="cash">Cash on Delivery</li>
+                                    <li data-value="Paypall" id="pall">Paypall</li>
                                 </ul>
 
                                 <div class="arrow bold"><i class="ion-chevron-down"></i></div>
                             </div>
                         </div>
                     </div>
+
+
 
                     <div class="row group">
                         <div class="col-sm-4"><h2 class="h4">Promo code</h2></div>
@@ -440,8 +459,23 @@
                         </div>
                         <div class="col-md-4 hidden-xs">
                         </div>
-                        <div class="col-xs-6 col-md-4">
-                            <button class="btn btn-primary pull-right" type="submit">Confirm order</button>
+                        <div class="col-xs-6 col-md-4 pull-right" id="confirm" >
+
+
+                            <a class="btn btn-primary "  id="checkout-button"  data-secret="{{$session->id}}">Pay</a>
+
+
+
+
+                        </div>
+                        <div class="col-xs-6 col-md-4 " id="confirm" >
+
+
+
+                            <button class="btn btn-primary "  type="submit" >Confirm Order</button>
+
+
+
                         </div>
                     </div>
                     <hr class="offset-md">
@@ -453,6 +487,52 @@
 
     <hr class="offset-lg">
     <hr class="offset-sm">
+
+
+
+
+    <script>
+
+
+
+        var stripe = Stripe('pk_test_51H4LzxLRh1ikRvHv72d6YU7tPLUU1Xah4ryiaAUQ4UxQ2jWgcaL6Yq5MAJqNWcXMmKAjjDQBSkwxH3Grfn6mGrPY00zYSDv0XI');
+
+        {{--var x = document.getElementById('cash');--}}
+        {{--var y = document.getElementById('credit');--}}
+        {{--var z = document.getElementById('pall');--}}
+
+        {{--var confirm = document.getElementById('confirm');--}}
+
+        {{--var i = '{{$session->id}}';--}}
+
+        {{--y.addEventListener('click',function(){--}}
+        {{--    confirm.innerHTML = `<a  class="btn btn-primary pull-right"  id="checkout-button" data-secret="${i}">pay</a>`--}}
+        {{--});--}}
+        {{--z.addEventListener('click',function(){--}}
+        {{--    confirm.innerHTML = `<button class="btn btn-primary pull-right" type="submit"  >Confirm order</button>`--}}
+        {{--});--}}
+        {{--x.addEventListener('click',function(){--}}
+        {{--    confirm.innerHTML = `<button class="btn btn-primary pull-right" type="submit" >Confirm order</button>`--}}
+        {{--});--}}
+
+
+
+        var checkoutButton = document.getElementById('checkout-button');
+
+        checkoutButton.addEventListener('click', function() {
+            stripe.redirectToCheckout({
+                // Make the id field from the Checkout Session creation API response
+                // available to this file, so you can provide it as argument here
+                // instead of the  placeholder.
+                sessionId: '{{$session->id}}'
+            }).then(function (result) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer
+                // using `result.error.message`.
+            });
+        });
+    </script>
+    @endif
     @endif
 
 

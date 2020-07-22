@@ -17,10 +17,17 @@ class RouteController extends Controller
         return view('index',compact(['desktops','laptops','tablets']));
     }
 
+//   
+
     public function store($type){
 
 
         $products = Product::latest()->paginate(9);
+
+
+
+
+
         return view('store',compact(['products' , 'type' ]));
     }
 
@@ -42,10 +49,7 @@ class RouteController extends Controller
         return view('product',compact(['product','comments']));
     }
 
-    public function checkout(){
-        $carts = \Cart::session(Auth::user()->id)->getContent();
-        return view('checkout',compact('carts'));
-    }
+
 
     public function favorites(){
         return view('favorites');

@@ -20,7 +20,7 @@ Route::get('{type}/store' ,'RouteController@store');
 Route::get('/search' ,'RouteController@stores');
 Route::get('{id}/product' ,'RouteController@product');
 Route::get('/contacts' ,'RouteController@contacts');
-Route::get('/checkout' ,'RouteController@checkout');
+
 Route::get('/favorites' ,'RouteController@favorites');
 Route::post('/user/register','UserController@userregister');
 Route::post('/user/login','UserController@userlogin');
@@ -34,6 +34,14 @@ Route::get('{id}/cart/addCart' ,'FavCartController@addCart');
 Route::get('{id}/cart/deleteCart' ,'FavCartController@deleteCart');
 Route::post('order/confirm','OrderController@confirm');
 Route::post('user/message','UserController@message');
+
+
+
+Route::get('/checkout' ,'PaymentController@checkout');
+
+
+
+//api
 
 
 

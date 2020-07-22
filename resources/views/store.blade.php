@@ -12,7 +12,7 @@
 
 
             <p>Search by tags</p>
-{{--            <div class="btn-group" data-toggle="buttons">--}}
+            <div class="btn-group" data-toggle="buttons">
                 <a href="{{url('all/store')}}"><label class="btn btn-default btn-sm active">
                      All products
                 </label></a>
@@ -26,7 +26,7 @@
                       Tablets
                 </label></a>
 
-{{--            </div>--}}
+            </div>
         </div>
     </div>
 
@@ -55,7 +55,7 @@
                         <div class="col-sm-6 col-md-4 product">
 
                             <div class="body">
-{{--                                <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>--}}
+                                <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
                                 <a href="{{url($product->id.'/product')}}"><img src="{{asset('../assets/img/products/'.$product->image)}}" alt="Apple iMac 27 Retina"/></a>
 
                                 <div class="content">
@@ -87,25 +87,25 @@
 
         {{   $products->links() }}
 
-{{--                <nav>--}}
-{{--                    <ul class="pagination">--}}
-{{--                        <li>--}}
-{{--                            <a href="#" aria-label="Previous">--}}
-{{--                                <span aria-hidden="true"><i class="ion-ios-arrow-left"></i></span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="active"><a href="#">1</a></li>--}}
-{{--                        <li><a href="#">2</a></li>--}}
-{{--                        <li><a href="#">3</a></li>--}}
-{{--                        <li class="disabled"><a href="#">..</a></li>--}}
-{{--                        <li><a href="#">10</a></li>--}}
-{{--                        <li>--}}
-{{--                            <a href="#" aria-label="Next">--}}
-{{--                                <span aria-hidden="true"><i class="ion-ios-arrow-right"></i></span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </nav>--}}
+                <nav>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true"><i class="ion-ios-arrow-left"></i></span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="disabled"><a href="#">..</a></li>
+                        <li><a href="#">10</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true"><i class="ion-ios-arrow-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
             <!-- /// -->
         </div>
@@ -116,6 +116,9 @@
 
     <hr class="offset-lg">
     <hr class="offset-sm">
+
+
+
 
 
 @endsection
