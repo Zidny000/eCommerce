@@ -39,7 +39,7 @@
 
             </div>
             <!-- top info widgets -->
-
+        </div>>
         <!-- bottombar -->
     </div>
 

@@ -17,7 +17,7 @@ class RouteController extends Controller
         return view('index',compact(['desktops','laptops','tablets']));
     }
 
-//   
+//
 
     public function store($type){
 
@@ -26,7 +26,7 @@ class RouteController extends Controller
 
 
 
-
+//        dd($type);
 
         return view('store',compact(['products' , 'type' ]));
     }

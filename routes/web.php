@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','RouteController@index' ) ;
 
 Route::get('/index' ,'RouteController@index');
-Route::get('{type}/store' ,'RouteController@store');
+Route::get('{typ}/store' ,'RouteController@store');
 Route::get('/search' ,'RouteController@stores');
 Route::get('{id}/product' ,'RouteController@product');
 Route::get('/contacts' ,'RouteController@contacts');

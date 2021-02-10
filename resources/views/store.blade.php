@@ -12,19 +12,22 @@
 
 
             <p>Search by tags</p>
-            <div class="btn-group" data-toggle="buttons">
+            <div class="btn-group" >
+{{--                <a href="{{url('/contacts')}}">sedrhsdhsdfh</a>--}}
+
                 <a href="{{url('all/store')}}"><label class="btn btn-default btn-sm active">
                      All products
                 </label></a>
                 <a href="{{url('Desktop/store')}}"><label class="btn btn-default btn-sm">
-                      Desktops
-                </label></a>
+                        Desktops
+                    </label></a>
                 <a href="{{url('Laptop/store')}}"> <label class="btn btn-default btn-sm">
                      Laptops
                 </label></a>
                 <a href="{{url('Tablet/store')}}"><label class="btn btn-default btn-sm">
                       Tablets
                 </label></a>
+
 
             </div>
         </div>

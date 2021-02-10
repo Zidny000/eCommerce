@@ -60,6 +60,7 @@ class AdminProductController extends Controller
             'sort3' =>\request('sort_info3')
         ]);
 
+
         return view('admin/product_add');
 
 

@@ -26,7 +26,7 @@ class AddStatusColumnOnOrder extends Migration
     public function down()
     {
         Schema::table('orders', function ($table) {
-            $table->dropColumn('votes');
+//            $table->dropColumn('votes');
         });
     }
 }

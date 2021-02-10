@@ -35,24 +35,28 @@
                 <div class="main-page">
                @include('admin.partials.sidebar')
                 <!-- side header -->
-
+                   @include('admin.partials.topbar')
                     <div class="main-content">
-                    @include('admin.partials.topbar')
+
+
                     <!-- responsive header -->
                         <div class="panel-body">
                             @yield('admin_content')
 
-                            <div class="bottombar">
-                                <span>© 2019. Dewwater. All Rights Reserved.</span>
-                            </div>
+
                             <!-- bottombar -->
+                                <div class="bottombar">
+                                    <span>© 2019. Dewwater. All Rights Reserved.</span>
+                                </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
