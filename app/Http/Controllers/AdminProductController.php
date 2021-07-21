@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Image;
 
 use Illuminate\Http\Request;
 
@@ -32,10 +33,19 @@ class AdminProductController extends Controller
 
 
         ]);
-
+        $image = $request->image;
+        //$filename = $image->getClientOriginalName();
         $image_name = uniqid().'.jpg';
+        $image_resize = Image::make($image->getRealPath());
+        $image_resize->resize(600,500);
+        $image_resize->save('assets/img/products/'.$image_name);
+       
+        //$img = Image::make($image_name)->resize(600,500)->save('assets/img/products'.$image_name);
+        // $img->resize(600,500,function($constraint){
+        //     $constraint->aspectRatio();
+        // })->save('assets/img/products'.$image_name);
 
-        $request->image->move('assets/img/products',$image_name);
+        //$request->image->move('assets/img/products',$image_name);
 
 
 
