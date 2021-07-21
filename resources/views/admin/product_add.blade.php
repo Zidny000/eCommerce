@@ -35,7 +35,7 @@
 
                                 <div class="col-md-12 mt-5"> <span class="upload-image">upload image</span>
                                     <label class="fileContainer"> <span>upload</span>
-                                        <input type="file" name="image" >
+                                        <input type="file" name="image" value="upload">
                                     </label>
 
                                 </div>

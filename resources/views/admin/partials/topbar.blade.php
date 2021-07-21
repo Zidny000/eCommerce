@@ -30,7 +30,7 @@
             <div class="col-lg-9">
                 <ul class="notify-area">
                     <li>
-                        <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
+                        <div class="nav-icon3 "> <span></span> <span></span> <span></span> <span></span> </div>
                     </li>
                 </ul>
             </div>

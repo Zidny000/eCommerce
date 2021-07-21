@@ -49,15 +49,16 @@ class UserController extends Controller
                 'password' => 'required'
             ]);
 
-
+           
             if(Auth::attempt(['email'=>request('email') , 'password' => request('password') , 'type' => 'user' ])){
                 return redirect('/index');
             }
             elseif (Auth::attempt(['email'=>request('email') , 'password' => request('password') , 'type' => 'admin' ])){
-                return redirect('/admin/showProduct');
+               
+                return redirect('/admin/adminDashboard');
             }
             elseif (Auth::attempt(['email'=>request('email') , 'password' => request('password') , 'type' => 'mod' ])){
-                return redirect('/admin/showProduct');
+                return redirect('/admin/adminDashboard');
             }
             else{
                 return redirect()->back()->with('error','Credentials does not match');

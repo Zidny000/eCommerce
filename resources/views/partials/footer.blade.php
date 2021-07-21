@@ -36,9 +36,9 @@
 
     <div class="subscribe">
         <div class="container align-center">
-            <hr class="offset-md">
+             <hr class="offset-md">
 
-            <h1 class="h3 upp">Join our newsletter</h1>
+            <!-- <h1 class="h3 upp">Join our newsletter</h1>
             <p>Get more information and receive special discounts for our products.</p>
             <hr class="offset-sm">
 
@@ -48,10 +48,10 @@
                     <span class="input-group-btn">
                   <button type="submit" class="btn btn-primary"> Subscribe <i class="ion-android-send"></i> </button>
                 </span>
-                </div><!-- /input-group -->
+                </div>
             </form>
             <hr class="offset-lg">
-            <hr class="offset-md">
+            <hr class="offset-md"> -->
 
             <div class="social">
                 <a href="#"><i class="ion-social-facebook"></i></a>
